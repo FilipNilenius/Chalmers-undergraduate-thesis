@@ -1,0 +1,41 @@
+\chapter{Introduction}
+This is a template! 
+
+
+\section{Background}
+Write about the thesis background here.
+\section{Problem description}
+This is where you describe you problem.
+\section{General aim}
+By now you know what to do here :)
+\section{Method / Outline }
+...
+
+\section{Objectives}
+...
+
+\section{References}
+Your reference data should be contained in \texttt{referencedata.bib}. Open the file using a text editor and look at its content. Your own references need to have the same structure! You cite a reference in this way: \textcite{Harryson2014} and \textcite{Noren2006}.
+
+\section{Cross-references}
+Cross-references within your own thesis are taken care of by the package \texttt{cleverref}. Making a cross-reference to a figure is done in this way: \cref{figure:test} (the name in the curly brackets could be anything).
+
+\section{Equations}
+Here is how to typeset equations in \LaTeX{}.
+
+\begin{align}
+\sigma = E\varepsilon \label{coolequation}
+\end{align}
+and here is how to align several equations using the \& symbol:
+\begin{align}
+A &= Bx \\ % double backslash to break to a new line
+c + D +\frac{2}{\phi} &= \sqrt{B}
+\end{align}
+and here is how to suppress numbering of equations
+\begin{align*}
+\sigma = E\varepsilon
+\end{align*}
+and this is how to cross-reference to an equation: \cref{coolequation}.
+
+\subsection{In-line math}
+Use the \$-symbol to typeset in-line math like so: $\sigma = E\varepsilon$. This important because in-line math should be italicized. For example, if you want to write the symbol for Young's modulus, it needs to be done in this way: $E$, not: E. If the letter ``E'' is italicized, then it is a physical quantity, namely Young's modulus, whereas a normal ``E'' is just an E.

@@ -1,0 +1,12 @@
+\chapter{Units}
+Units are typeset using the package \texttt{siunitx}. Most numerical values you will typeset have units, except e.g. strain. Here are two examples of badly typeset units: 
+\begin{align*}
+\sigma &= 100 mpa \\
+\sigma &= 100\, Mpa
+\end{align*}
+
+The correct way looks like this:
+\begin{align*}
+\sigma = \SI{100}{\mega\pascal}
+\end{align*}
+The unit should \emph{not} be italicized and should have a correct spacing between its numerical value. This is automatically taken care of by the package \texttt{siunitx}. Common units are typeset in this way: $\SI{10}{\meter\squared}$, $\SI{10e-5}{\meter\cubed}$, $\SI{10}{\kilo\newton}$ and $\SI{10}{\gram\per\meter\squared\per\second}$. The number goes in the first pair of curly brackets, and the unit in the second pair. Typesetting units \emph{without} numerical value is done in this way: $\si{\kilo\newton}$.
