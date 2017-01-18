@@ -1,4 +1,4 @@
-Download the entire template as a zip here: https://github.com/FilipNilenius/Chalmers/archive/master-thesis.zip
+Watch the tutorial here: https://youtu.be/yN-06tpRPJ4
 
 Master's thesis templeate for Master's theses in Structural Engineering, Chalmers University of Technology.
 
