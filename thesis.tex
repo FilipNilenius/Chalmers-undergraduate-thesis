@@ -1,14 +1,12 @@
-\documentclass{stylefiles/master-thesis}
+\documentclass[masters]{undergraduate-thesis}
+%\documentclass[bachelors]{undergraduate-thesis} % use this line if you are writing a bachelor's thesis
 
-%% Packages. All ducumentation is on the web, just google for 'package name + latex'
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{stix}
+%% Packages. All ducumentation is on the web, google for package name + latex
 \usepackage{subfiles}
 \usepackage{hyperref}
-\usepackage[swedish,english]{babel}
+\usepackage{babel}
 \usepackage{csquotes}
-\usepackage[firstinits=true,
+\usepackage[giveninits=true,
             uniquename=init,
             style=authoryear,
             backend=biber,
@@ -20,58 +18,57 @@
 \usepackage{pgfplots}
 \usepackage{subfig}
 \usepackage{float}
-\usepackage{siunitx}
 \usepackage[capitalise,noabbrev]{cleveref}
-\usepackage{wrapfig}
-\usepackage{fancyhdr}
-\usepackage[titletoc]{appendix}
+\usepackage{pdfpages}
+\usepackage[detect-all]{siunitx}
 
 
-%% TikZ/PGF-plot libraries
 \pgfplotsset{compat=newest}
 \usepgfplotslibrary{units}
 
-
 %% Add reference sourse file
-\addbibresource{referencedata.bib}
+\addbibresource{references.bib}
 	
 
-% Aser commands
-\title{Thesis title}
+% User commands
+\title{Some Title}
 \subtitle{some subtitle} % Optional
 \author{Gudjón Ólafur Gudjónsson \and Jón Grétar Höskuldsson} 
-\thesisin{Structural Engineering and Building Technology}
+\thesisin{Civilingenjörsprogrammet}
 \department{Department of Civil and Environmental Engineering}
 \division{Division of Structural Engineering}
 \researchgroup{Concrete Structures}
 \reportno{201X:XX} % contact your examiner for report number
 \copyrightyear{201X}
+\keywords{Permanent Diaphragm Walls, Diaphragm Walls, Functional Requirements}
+
 
 % You should scale the figure according to textwidth and or paperheight.
-\coverfigure{\includegraphics[width=\textwidth,height=0.37\paperheight,keepaspectratio]{figures/P6290037.JPG}}
+\coverfigure{\includegraphics[width=\textwidth,height=0.37\paperheight,keepaspectratio]{img/P6290037.JPG}}
 \covercaption{City Tunnel Diaphragm Walls, TEMP pic}
 
 \firstabstract{%
 Here goes the text for the Abstract
 }
-\keywords{Permanent Diaphragm Walls, Diaphragm Walls, Functional Requirements}
+
 
 \preface{%
 Here goes the text for the Preface.
 }
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%        Only for swedish students        %%%%%%%%%%%%%%
-%\titel{Svensk titel} % Optional
-%\undertitel{svensk undertitel} % Optional
-%\institution{Institutionen för bygg- och miljöteknik} % Optional
-%\avdelning{Avdelningen för Konstruktionsteknik} % Optional
-%\forskargrupp{Betongbyggnad}
-%\secondabstract{swedish}{Svensk sammanfattning} % Optional
-%\nyckelord{Några, svenska, nyckelord} % Optional
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+% secondary language
+% You only need to use this if you (1) are writing a bachelor thesis in Swedich which should have an English abcstract, or (2) if you are writing a Master's thesis and want to include a Swedich abstract (which is optional).
+\secondarylanguage{english}
+\thesisinsecondlang{Building and Civil Engineering}
+\titlesecondlang{Some Title second language}
+\subtitlesecondlang{some subtitle second language} % Optional
+\keywordssecondlang{keywords in, second, language}
+\departmentsecondlang{Department's name in second language}
+\divisionsecondlang{Division's name in second language} % Optional
+\researchgroupsecondlang{Research group's name second language} % Optional
+\abstractsecondlang{%
+	This is the abstract text in the secondary language
+}
 
 % You can add extra contents such as abbreviations and nomenclature using.
 % Use \presectiontitle to render add titles to new sections.

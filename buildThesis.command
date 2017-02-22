@@ -7,7 +7,7 @@
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 cd $DIR
 
-STR=masterThesis
+STR=thesis
 
 # compile the thesis
 pdflatex $STR

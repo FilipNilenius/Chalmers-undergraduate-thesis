@@ -26,11 +26,6 @@
 % \reportno{text}
 % \ISBN{text}
 % \department{text}
-% \institution{text}                  - Optional
-% \division{text}                     - Optional
-% \avdelning{text}                    - Optional
-% \reserachgroup{text}                - Optional
-% \forskargrupp{text}                 - Optional
 % \thesisin{text}
 
 
@@ -60,7 +55,7 @@
 
 \NeedsTeXFormat{LaTeX2e}
 
-\ProvidesClass{master-thesis}[2011/04/21 CHALMERS Thesis class]
+\ProvidesClass{undergraduate-thesis}[2011/04/21 CHALMERS Thesis class]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Macro for checking all required commands are set.
@@ -68,6 +63,21 @@
   \@ifundefined{@#1}{\ClassError{master-thesis}{User input `#1` undefined.}{Use the \textbackslash #1{} command to set it.}}{}%
 }
 
+% Conditionals
+\newif\if@bachelors
+\newif\if@masters
+
+\@bachelorsfalse
+\@mastersfalse
+
+
+%% Options of class
+% bachelors, masters
+\DeclareOption{bachelors}{\global\@bachelorstrue
+	\global\@mastersfalse}
+\DeclareOption{masters}{\global\@masterstrue
+	\global\@bachelorsfalse}
+\ProcessOptions
 
 \LoadClass[twoside,12pt]{report}
 
@@ -80,7 +90,12 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage{microtype}
 \RequirePackage{titlesec}
-
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{stix}
+\RequirePackage{wrapfig}
+\RequirePackage{fancyhdr}
+\RequirePackage[titletoc]{appendix}
 \RequirePackage[top=0.1\paperheight, bottom=0.1\paperheight, left=0.1\paperwidth, right=0.1\paperwidth]{geometry}
 
 % Makes the chapters act like a big section
@@ -125,9 +140,7 @@
    \def\keywordsname{Nyckelord}%
    \def\masterthesisname{Examensarbete}%
    \def\bachelorsthesisname{Kandidatarbete}%
-   \def\licentiatethesisname{Licentiatavhandling}%
-   \def\doctoratethesisname{Doktorsavhandling}%
-   \def\inname{i}%
+   \def\inname{inom}%
   }
  
   \addto\captionsenglish{%
@@ -140,9 +153,7 @@
    \def\keywordsname{Keywords}%
    \def\masterthesisname{Master's thesis}%
    \def\bachelorsthesisname{Bachelor's thesis}%
-   \def\licentiatethesisname{Thesis for the degree of Licentiate of Engineering}%
-   \def\doctoratethesisname{Thesis for the degree of Doctor of Philosophy}%
-   \def\inname{in the Master’s Programme}%
+   \def\inname{in}%
   }
  }{\ClassError{master-thesis}{Package 'babel' required}{}}
  
@@ -179,13 +190,9 @@
 % User preamble commands
 \renewcommand{\author}[1]{\gdef\@author{#1}}
 \renewcommand{\title}[1]{\gdef\@title{#1}}
-\newcommand{\titel}[1]{\gdef\@titel{#1}} % Optional
 \newcommand{\subtitle}[1]{\gdef\@subtitle{#1}} % Optional
-\newcommand{\undertitel}[1]{\gdef\@undertitel{#1}} % Optional
 \newcommand{\firstabstract}[1]{\gdef\@firstabstract{#1}} 
-\newcommand{\secondabstract}[2]{\gdef\@secondarylanguage{#1}\gdef\@secondabstract{#2}} % Optional
 \newcommand{\keywords}[1]{\gdef\@keywords{#1}}
-\newcommand{\nyckelord}[1]{\gdef\@nyckelord{#1}}
 \newcommand{\preface}[1]{\gdef\@preface{#1}} % Optional
 \newcommand{\acknowledgements}[1]{\gdef\@acknowledgements{#1}} % Optional
 \newcommand{\dedication}[1]{\gdef\@dedication{#1}} % Optional
@@ -194,15 +201,25 @@
 \newcommand{\copyrightyear}[1]{\gdef\@copyrightyear{#1}}
 \newcommand{\reportno}[1]{\gdef\@reportno{#1}}
 \newcommand{\ISBN}[1]{\gdef\@ISBN{#1}}
-\newcommand{\footer}{\chalmerslogo{black}{0.15\textwidth}\hspace{-3.5pt}, \textit{Civil and Environmental Engineering, Master's Thesis},\medskip}
-
 \newcommand{\department}[1]{\gdef\@department{#1}}
-\newcommand{\institution}[1]{\gdef\@institution{#1}}
 \newcommand{\division}[1]{\gdef\@division{#1}}
-\newcommand{\avdelning}[1]{\gdef\@avdelning{#1}}
 \newcommand{\researchgroup}[1]{\gdef\@researchgroup{#1}}
-\newcommand{\forskargrupp}[1]{\gdef\@forskargrupp{#1}}
 \newcommand{\thesisin}[1]{\gdef\@thesisin{#1}}
+
+
+% second languange
+\newcommand{\secondarylanguage}[1]{\gdef\@secondarylanguage{#1}}
+\newcommand{\titlesecondlang}[1]{\gdef\@titlesecondlang{#1}}
+\newcommand{\subtitlesecondlang}[1]{\gdef\@subtitlesecondlang{#1}} % Optional
+\newcommand{\abstractsecondlang}[1]{\gdef\@abstractsecondlang{#1}} % Optional
+\newcommand{\keywordssecondlang}[1]{\gdef\@keywordssecondlang{#1}}
+\newcommand{\departmentsecondlang}[1]{\gdef\@departmentsecondlang{#1}}
+\newcommand{\thesisinsecondlang}[1]{\gdef\@thesisinsecondlang{#1}}
+\newcommand{\divisionsecondlang}[1]{\gdef\@divisionsecondlang{#1}}
+\newcommand{\researchgroupsecondlang}[1]{\gdef\@researchgroupsecondlang{#1}}
+
+
+
 
 \newcommand{\extrafrontmatter}[1]{\gdef\@extrafrontmatter{#1}}
 
@@ -212,18 +229,28 @@
 \newcommand{\telephone}[1]{\gdef\@telephone{#1}}
 \newcommand{\postcode}[1]{\gdef\@postcode{#1}}
 
-% Some default settings for Chalmers or at least the department of solid mechanics.
+% Some default settings for Chalmers
 \postcode{SE-412 96}
 \printers{Chalmers Reproservice}
 \telephone{+46 (0)31-772 1000}
 
 % Thesis specific settings
+\if@bachelors
+\ISSN{1654-4676}
+\def\thesisname{\bachelorsthesisname}
+\PassOptionsToPackage{english,swedish}{babel}
+\fi
+
+\if@masters
 \ISSN{1652-8557}
+\def\thesisname{\masterthesisname}
+\PassOptionsToPackage{swedish,english}{babel}
+\fi
+
 \def\titlepage@edge{draw}
 \def\titlepage@chalmerscolor{black}
 \def\titlepage@bg{}
 \def\titlepage@logotype{Avancez_white}
-\def\thesisname{\masterthesisname}
 \def\@reportseries{\thesisname}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -263,7 +290,7 @@
    {\begin{tikzpicture}[remember picture, overlay]
      %\clip[\titlepage@edge] (0,\headerheight) -- +(\paperwidth,0) -- (\paperwidth,0) -- (0.75\paperwidth,0) .. controls (0.725\paperwidth,0) and (0.725\paperwidth,\headeroffset) .. (0.70\paperwidth,\headeroffset) -- (0,\headeroffset) -- cycle; % (0.5\paperwidth,\headeroffset) to[out=0,in=180] (0.6\paperwidth,0cm);
      \titlepage@bg
-	\node[anchor=west,xshift=0.1\paperwidth,yshift=0.516\headerheight]{\includegraphics[width=0.5\paperwidth]{figures/frontlogo.png}};
+	\node[anchor=west,xshift=0.1\paperwidth,yshift=0.516\headerheight]{\includegraphics[width=0.5\paperwidth]{img/frontlogo.png}};
    \end{tikzpicture}};
  \end{tikzpicture}
  \vspace{1.2cm}
@@ -398,25 +425,25 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\makesecondabstractpage}{%
  \@checkifdefined{secondarylanguage}
- \@checkifdefined{secondabstract}
- \@checkifdefined{titel}
- \@checkifdefined{institution}
- \@checkifdefined{nyckelord}
+ \@checkifdefined{abstractsecondlang}
+ \@checkifdefined{titlesecondlang}
+ \@checkifdefined{departmentsecondlang}
+ \@checkifdefined{keywordssecondlang}
  \newpage
- \begin{Otherlanguage}{swedish}
-  {\noindent \@titel\\
-  \@ifundefined{@undertitel}{}{\@undertitel\\}
-  \thesisname\ \inname\ \@thesisin\\
+ \begin{Otherlanguage}{\@secondarylanguage}
+  {\noindent \@titlesecondlang\\
+  \@ifundefined{@subtitlesecondlang}{}{\@subtitlesecondlang\\}
+  \thesisname\ \inname\ \@thesisinsecondlang\\
    {\renewcommand{\and}{\\}\MakeUppercase{\@author}}\\
-  \@institution\\
-  \@ifundefined{@avdelning}{}{\@avdelning\\}
-  \@ifundefined{@forskargrupp}{}{\@forskargrupp\\}
+  \@departmentsecondlang\\
+  \@ifundefined{@divisionsecondlang}{}{\@divisionsecondlang\\}
+  \@ifundefined{@researchgroupsecondlang}{}{\@researchgroupsecondlang\\}
   \universityname
  \par}
   \presectiontitle{\abstractname}
-  \@secondabstract
+  \@abstractsecondlang
   \vskip 1em
-  \noindent \keywordsname: \@nyckelord
+  \noindent \keywordsname: \@keywordssecondlang
  \end{Otherlanguage}
 }
 
@@ -445,13 +472,14 @@
  \pagestyle{fancy}
  \renewcommand{\footrulewidth}{0pt}
  \renewcommand{\headrulewidth}{0pt}
+ \newcommand{\footer}{\chalmerslogo{black}{0.15\textwidth}\hspace{-3.5pt}, \textit{\@department, \thesisname},\medskip}
  \fancyfoot{}
  \fancyhead{}
  \fancyfoot[O] {{\small\footer$\,\,$\@reportno}\hfill\thepage}
  \fancyfoot[E] {\thepage\hfill{\small\footer$\,\,$\@reportno}}
  
  % Empty or second abstract
- \@ifundefined{@secondabstract}{}{
+ \@ifundefined{@abstractsecondlang}{}{
   \makesecondabstractpage
  }
 
