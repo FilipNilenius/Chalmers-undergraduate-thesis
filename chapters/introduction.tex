@@ -15,7 +15,15 @@ By now you know what to do here :)
 ...
 
 \section{References}
-Your reference data should be contained in \texttt{referencedata.bib}. Open the file using a text editor and look at its content. Your own references need to have the same structure! You cite a reference in this way: \textcite{Harryson2014} and \textcite{Noren2006} \citeauthor{Noren2006}.
+Your reference data should be contained in \texttt{references.bib}. Open the file using a text editor and look at its content. Your own references need to have the same structure! You cite a reference in these ways:
+\begin{itemize}
+	\item \textcite{Harryson2014}
+	\item \textcite{Noren2006}
+	\item \cite{Harryson2014}
+	\item \citeauthor{Harryson2014}
+	\item \citetitle{Harryson2014}
+	\item \cite{box1978,Harryson2014,matlab}
+\end{itemize}
 
 \section{Cross-references}
 Cross-references within your own thesis are taken care of by the package \texttt{cleverref}. Making a cross-reference to a figure is done in this way: \cref{figure:test} (the name in the curly brackets could be anything).

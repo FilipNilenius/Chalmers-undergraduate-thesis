@@ -1,6 +1,6 @@
 Watch the tutorial here: https://youtu.be/yN-06tpRPJ4
 
-Master's thesis templeate for Master's theses in Structural Engineering, Chalmers University of Technology.
+Thesis template for Bachelor's and Master's theses in Civil and Environmental Engineering, Chalmers University of Technology.
 
 The template is forked from the template by Mikael Öhman, https://github.com/Micket/chalmers, and is suitable for Master's thesis at the department of Structural Engingeering, Chalmers University of Technology.
 

@@ -1,6 +1,11 @@
 \begin{appendices}
+\newpage
 \chapter{Your first Appendix}
 The contents of your appendicies go here.
 \chapter{Your second Appendix}
 The contents of your appendicies go here.
+
+\chapter{Your third Appendix}
+If you want to append separate PDFs, you can do it in this way. Note that the page footer (including page numbering) is superiposed in the apppended PDF.
+\includepdf[pages=-,pagecommand=\thispagestyle{fancy}]{appendedPDFs/appended-pdf.pdf}
 \end{appendices}

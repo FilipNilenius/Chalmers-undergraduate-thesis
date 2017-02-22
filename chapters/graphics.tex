@@ -4,12 +4,11 @@
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.4]{figures/GR-FR.png}
+\includegraphics[scale=0.4]{img/GR-FR.png}
 \caption{Functional requirements for Buildability.}
 \label{figure:test}
 \end{figure}
 
-bla bla bla....
 
 \section{Plots}
 Plots are preferably done using the package \texttt{pgfplots}. Below is an example given. The example also show how to put figures side-by-side in your document using the \texttt{\textbackslash subfloat} command. Open \texttt{data.txt} in a text editor and have a look at its structure. The \LaTeX{} document reads the data from the text file and produces a plot. Axes are automatically scaled depending on the data range given in the text file. 
@@ -24,8 +23,8 @@ Plots are preferably done using the package \texttt{pgfplots}. Below is an examp
 	every axis/.append style={line width=1pt},
     xlabel = $\bar{\varepsilon}_\text{zz}$,
     ylabel style={align=center},
-    ylabel = $(\bar{D})_\bullet/D_\text{cp}$,
-    y unit = -,
+    ylabel = $D_\text{cp}$,
+    y unit = {\si{\kilogram\per\meter\square\second}},
     x unit = -,
     cycle list name=linestyles,
     legend style={cells={anchor=west}},
@@ -71,7 +70,12 @@ You can cross-reference to each of the figures in this way: \cref{fig:a} and \cr
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}
-\begin{axis}[legend pos= north west]
+\begin{axis}[	scale=0.85,
+every axis/.append style={line width=1pt},
+xlabel = $x$,
+ylabel = $f(x)$,
+legend pos=north west,
+]
 \addplot[dashed,domain=-1:1]{x^2};
 \addplot[dotted,thick,domain=1:2]{x^2 + sqrt(x)};
 \legend{$x^2$,$x^2 + \sqrt{x}$}

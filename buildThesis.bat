@@ -1,7 +1,7 @@
 :: batch file to compile the thesis
 :: you'll need to change the variable 'STR' (line 4) if you change the name of 'masterThesis.tex'.
 
-SET STR=masterThesis
+SET STR=thesis
 
 :: compile the thesis
 pdflatex %STR%
