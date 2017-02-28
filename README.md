@@ -1,3 +1,5 @@
+This template is also on ShareLaTeX: https://www.sharelatex.com/templates/58ad482298d28f860d5a2200
+
 Watch the tutorial here: https://youtu.be/yN-06tpRPJ4
 
 Thesis template for Bachelor's and Master's theses in Civil and Environmental Engineering, Chalmers University of Technology.
