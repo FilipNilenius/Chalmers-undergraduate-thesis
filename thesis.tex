@@ -8,9 +8,10 @@
 \usepackage{csquotes}
 \usepackage[giveninits=true,
             uniquename=init,
-            style=authoryear,
+            style=apa,
             backend=biber,
-            backref=true,
+            apabackref=true,
+            abbreviate=false,
             maxbibnames=99,
             ]{biblatex}
 \usepackage{mathtools}
@@ -22,9 +23,12 @@
 \usepackage{pdfpages}
 \usepackage[detect-all]{siunitx}
 
-
 \pgfplotsset{compat=newest}
 \usepgfplotslibrary{units}
+
+% required for apa-style
+\DeclareLanguageMapping{swedish}{swedish-apa}
+\DeclareLanguageMapping{english}{english-apa}
 
 %% Add reference sourse file
 \addbibresource{references.bib}
@@ -94,7 +98,7 @@ $B_\text{cd}$ & Variable notation for something\\
 
 \newpage
 \phantomsection
-\addcontentsline{toc}{chapter}{References}
+\addcontentsline{toc}{chapter}{\refsectitle{}}
 \printbibliography
 
 \input{chapters/appendix}

@@ -239,12 +239,14 @@
 \ISSN{1654-4676}
 \def\thesisname{\bachelorsthesisname}
 \PassOptionsToPackage{english,swedish}{babel}
+\newcommand{\refsectitle}{Litteraturförteckning}
 \fi
 
 \if@masters
 \ISSN{1652-8557}
 \def\thesisname{\masterthesisname}
 \PassOptionsToPackage{swedish,english}{babel}
+\newcommand{\refsectitle}{References}
 \fi
 
 \def\titlepage@edge{draw}
