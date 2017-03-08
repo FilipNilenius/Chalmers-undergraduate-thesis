@@ -242,6 +242,7 @@
 \PassOptionsToPackage{english,swedish}{babel}
 \newcommand{\refsectitle}{Litteraturförteckning}
 \newcommand{\acronymtitle}{Akronymer}
+\newcommand{\nomeclaturename}{Nomenklatur}
 \fi
 
 \if@masters
@@ -250,6 +251,7 @@
 \PassOptionsToPackage{swedish,english}{babel}
 \newcommand{\refsectitle}{References}
 \newcommand{\acronymtitle}{Acronyms}
+\newcommand{\nomeclaturename}{Nomenclature}
 \fi
 
 \def\titlepage@edge{draw}
