@@ -1,0 +1,67 @@
+%\renewcommand{\nomname}{\normalfont\presectiontitle{Nomenclature}} % English
+%\renewcommand{\nomname}{\normalfont\presectiontitle{Nomenklaturlista}} % Swedish
+
+
+\renewcommand{\nompreamble}{\begin{multicols}{2}}
+\renewcommand{\nompostamble}{\end{multicols}}
+
+\setlength{\nomitemsep}{-\parsep}
+\renewcommand{\nomgroup}[1]{%
+	\ifthenelse{\equal{#1}{G}}{\vspace{0.3cm}\item[\textbf{Greek letters}]}{}%
+	\ifthenelse{\equal{#1}{R}}{\vspace{0.3cm}\item[\textbf{Roman capital letters}]}{}%
+	\ifthenelse{\equal{#1}{L}}{\vspace{0.3cm}\item[\textbf{Roman lower case letters}]}{}%
+	\ifthenelse{\equal{#1}{B}}{\item[\textbf{Subscripts}]}{}%
+	\ifthenelse{\equal{#1}{P}}{\vspace{0.3cm}\item[\textbf{Superscripts}]}{}%
+	\ifthenelse{\equal{#1}{M}}{\vspace{0.3cm}\item[\textbf{Miscellaneous}]}{}%
+}%
+
+% Roman capital
+\nomenclature[R]{$V$}{volume (\si{\meter^3})}
+\nomenclature[R]{$E$}{Young's modulus (\si{\mega\pascal})}
+\nomenclature[R]{$\mathbf{E}$}{fourth order stiffness tensor (\si{\mega\pascal})}
+\nomenclature[R]{$A$}{surface area (\si{\meter^2})}
+
+% Romal lower case
+\nomenclature[L]{$h$}{element size (\si{\meter})}
+\nomenclature[L]{w}{crack width (\si{\meter})}
+\nomenclature[L]{$\mathbf{n}$}{normal vector}
+
+% Subscript
+\nomenclature[B]{b}{aggregate}
+\nomenclature[B]{c}{cement paste}
+\nomenclature[B]{cr}{crack}
+\nomenclature[B]{I}{largest eigenvalue}
+\nomenclature[B]{el}{elastic}
+
+% Superscript
+\nomenclature[P]{M}{macroscale}
+\nomenclature[P]{s}{subscale}
+
+% Greek
+\nomenclature[G]{$\rho$}{moisture concentration (\si{\kilogram\per\meter^3})}
+\nomenclature[G]{$\mathbf{\sigma}$}{second order stress tensor (\si{\mega\pascal})}
+\nomenclature[G]{$\mathbf{\varepsilon}$}{second order strain tensor (-)}
+\nomenclature[G]{$\omega$}{damage parameter}
+\nomenclature[G]{$\kappa$}{largest equivalent strain (-)}
+
+% Misc
+\nomenclature[M]{$\bar{\bullet}$}{bar denotes macroscopic quantity}
+\nomenclature[M]{$\langle\bullet\rangle_\Box$}{homogenized quantity}
+\nomenclature[M]{$\perp$}{perpendicular}
+\nomenclature[M]{$\parallel$}{parallel}
+
+% Acronymes
+\newacronym{fem}{FEM}{Finite Element Method}
+
+% Glossaries
+\newglossaryentry{polyhedron}
+{
+	name=Polyhedron,
+	description={A solid in three dimensions with flat polygonal faces, straight edges and sharp corners or vertices.}
+}
+
+\printacronyms[title=\acronymtitle]
+\printglossary
+\printnomenclature
+
+
