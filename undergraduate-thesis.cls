@@ -136,6 +136,7 @@
    \def\telephonename{Telefon}%
    \def\universityname{Chalmers tekniska h\"ogskola}%
    \def\covername{Omslag}%
+   \def\colophonname{Kolofon}%
    \def\acknowledgementsname{Tacks\"agelse}%
    \def\keywordsname{Nyckelord}%
    \def\masterthesisname{Examensarbete}%
@@ -149,6 +150,7 @@
    \def\telephonename{Telephone}%
    \def\universityname{Chalmers University of Technology}%
    \def\covername{Cover}%
+   \def\colophonname{Colophon}%
    \def\acknowledgementsname{Acknowledgements}%
    \def\keywordsname{Keywords}%
    \def\masterthesisname{Master's thesis}%
@@ -198,6 +200,7 @@
 \newcommand{\dedication}[1]{\gdef\@dedication{#1}} % Optional
 \newcommand{\coverfigure}[1]{\gdef\@coverfigure{#1}}
 \newcommand{\covercaption}[1]{\gdef\@covercaption{#1}}
+\newcommand{\colophon}[1]{\gdef\@colophon{#1}} % optional
 \newcommand{\copyrightyear}[1]{\gdef\@copyrightyear{#1}}
 \newcommand{\reportno}[1]{\gdef\@reportno{#1}}
 \newcommand{\ISBN}[1]{\gdef\@ISBN{#1}}
@@ -219,8 +222,6 @@
 \newcommand{\researchgroupsecondlang}[1]{\gdef\@researchgroupsecondlang{#1}}
 
 
-
-
 \newcommand{\extrafrontmatter}[1]{\gdef\@extrafrontmatter{#1}}
 
 % User commands which shouldn't need to be set.
@@ -240,6 +241,7 @@
 \def\thesisname{\bachelorsthesisname}
 \PassOptionsToPackage{english,swedish}{babel}
 \newcommand{\refsectitle}{Litteraturförteckning}
+\newcommand{\acronymtitle}{Akronymer}
 \fi
 
 \if@masters
@@ -247,6 +249,7 @@
 \def\thesisname{\masterthesisname}
 \PassOptionsToPackage{swedish,english}{babel}
 \newcommand{\refsectitle}{References}
+\newcommand{\acronymtitle}{Acronyms}
 \fi
 
 \def\titlepage@edge{draw}
@@ -384,6 +387,8 @@
   \countryname\\
   \telephonename: \@telephone\par}
  \vspace*{\stretch{2}}
+ \@ifundefined{@colophon}{}{{\noindent \colophonname:\\ \@colophon\par}}
+ \vskip 1em
  \@ifundefined{@covercaption}{}{{\noindent \covername:\\ \@covercaption\par}}
  \vskip 1em
  {\noindent \@printers
@@ -497,10 +502,8 @@
   \makeprefacepage
  }
  
- \@ifundefined{@extrafrontmatter}{}{
-  \cleardoublepage
-  \@extrafrontmatter
- }
+
+ \IfFileExists{./chapters/notation.tex}{\cleardoublepage\input{chapters/notation}}{}
 
  % Sets up page numbering for the rest of the document.
  \cleardoublepage

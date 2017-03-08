@@ -1,6 +1,5 @@
 \chapter{Introduction}
-This is a template! 
-
+This is a template!
 
 \section{Background}
 Write about the thesis background here.
@@ -17,12 +16,13 @@ By now you know what to do here :)
 \section{References}
 Your reference data should be contained in \texttt{references.bib}. Open the file using a text editor and look at its content. Your own references need to have the same structure! You cite a reference in these ways:
 \begin{itemize}
-	\item \textcite{Harryson2014}
-	\item \textcite{Noren2006}
+	\item \parencite[pre note][post note]{Harryson2014}
+	\item \textcite[][Chapter~2]{Noren2006}
 	\item \cite{Harryson2014}
 	\item \citeauthor{Harryson2014}
 	\item \citetitle{Harryson2014}
 	\item \cite{box1978,Harryson2014,matlab}
+	\item \textcite{LectureA}
 \end{itemize}
 
 \section{Cross-references}
@@ -47,3 +47,9 @@ and this is how to cross-reference to an equation: \cref{coolequation}.
 
 \subsection{In-line math}
 Use the \$-symbol to typeset in-line math like so: $\sigma = E\varepsilon$. This important because in-line math should be italicized. For example, if you want to write the symbol for Young's modulus, it needs to be done in this way: $E$, not: E. If the letter ``E'' is italicized, then it is a physical quantity, namely Young's modulus, whereas a normal ``E'' is just an E.
+
+\subsection{Acronymes}
+Define you acronymes in \texttt{notation.tex}. \acrlong{fem}, \acrshort{fem}, \acrfull{fem}.
+
+\subsection{Glossaries}
+A glossaries can be useful to include for words that the reader is assumed to ha no prior knowledge of. You define your glossaries in \texttt{notation.tex} and the reference to them like this: \Gls{polyhedron}, \gls{polyhedron} and \glspl{polyhedron}.

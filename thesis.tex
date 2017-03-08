@@ -22,13 +22,38 @@
 \usepackage[capitalise,noabbrev]{cleveref}
 \usepackage{pdfpages}
 \usepackage[detect-all]{siunitx}
+\usepackage[intoc]{nomencl}
+\usepackage[acronym,xindy,toc]{glossaries}
+\usepackage{etoolbox}
+\usepackage{multicol}
 
+% set multicolumn spacing for nomenclature
+\setlength{\columnsep}{1cm}
+
+% no page breakt in notation section
+\renewcommand*{\glsclearpage}{}
+
+% nomenclature
+\makenomenclature
+
+% glossaries
+\makeglossaries
+
+% pgfplots
 \pgfplotsset{compat=newest}
 \usepgfplotslibrary{units}
 
 % required for apa-style
 \DeclareLanguageMapping{swedish}{swedish-apa}
 \DeclareLanguageMapping{english}{english-apa}
+
+% Reference section titles in English and Swedish
+\DefineBibliographyStrings{english}{%
+	bibliography = {References},
+}
+\DefineBibliographyStrings{swedish}{%
+	bibliography = {Referenser},
+}
 
 %% Add reference sourse file
 \addbibresource{references.bib}
@@ -50,6 +75,11 @@
 % You should scale the figure according to textwidth and or paperheight.
 \coverfigure{\includegraphics[width=\textwidth,height=0.37\paperheight,keepaspectratio]{img/P6290037.JPG}}
 \covercaption{City Tunnel Diaphragm Walls, TEMP pic}
+
+% optional
+\colophon{%
+The thesis was created using \LaTeXe{} and \texttt{biblatex} and edited on \texttt{www.sharelatex.com}. The typesetting software was the \TeX{} Live distribution. The text is set in Times New Roman. Graphs were creating using {\scshape pgfplots} and MS Excel. Figures were created using {\scshape inkscape}.
+}
 
 \firstabstract{%
 Here goes the text for the Abstract
@@ -74,19 +104,6 @@ Here goes the text for the Preface.
 	This is the abstract text in the secondary language
 }
 
-% You can add extra contents such as abbreviations and nomenclature using.
-% Use \presectiontitle to render add titles to new sections.
-\extrafrontmatter{\presectiontitle{Nomenclature}
-In the notation table, if included, all variables occurring in the report (text, equations, figures or tables) are listed alphabetically. The variables should appear in the same format as later on in the report. Therefore, it may be wise to use the equation editor to write them, see also Section 1.5. In case of many variables, it is preferably to separate the table in “Roman upper case letters”, “Roman lower case letters”, “Greek upper case letters”, etc. Use the style “Notations” for lines with the explanations of the variables, but the style “Normal” for the table headings (and for one blank line before a new heading).\\
-
-\noindent\textbf{Roman upper case letters}\\
-\begin{tabular}{ll}
-$A_\text{bc}$ & Variable notation for something\\
-$B_\text{cd}$ & Variable notation for something\\
-\end{tabular}
-} % Optional
-	
-
 
 \begin{document}
 \maketitle
@@ -96,11 +113,11 @@ $B_\text{cd}$ & Variable notation for something\\
 \input{chapters/sectionheadings}
 \input{chapters/graphics}
 
+% references
 \newpage
-\phantomsection
-\addcontentsline{toc}{chapter}{\refsectitle{}}
-\printbibliography
+\printbibliography[heading=bibintoc]
 
+% appendicies
 \input{chapters/appendix}
 \end{document}
 
