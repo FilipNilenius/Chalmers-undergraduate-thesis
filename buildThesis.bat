@@ -6,6 +6,8 @@ SET STR=thesis
 :: compile the thesis
 pdflatex %STR%
 biber %STR%
+makeglossaries %STR%
+makeindex %STR%.nlo -s nomencl.ist -o %STR%.nls
 pdflatex %STR%
 pdflatex %STR%
 
@@ -21,3 +23,15 @@ del %STR%.bbl
 del %STR%.blg
 del %STR%.toc
 del %STR%.synctex
+del %STR%.xdy
+del %STR%.ist
+del %STR%.glsdefs
+del %STR%.gls
+del %STR%.glg
+del %STR%.alg
+del %STR%.acr
+del %STR%.acn
+del %STR%.nlo
+del %STR%.glo
+del %STR%.nls
+del %STR%.ilg
