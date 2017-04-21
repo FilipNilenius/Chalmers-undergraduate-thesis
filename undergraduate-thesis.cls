@@ -498,6 +498,9 @@
 
  \cleardoublepage
  \tableofcontents
+ \clearpage
+ \listoffigures
+ \listoftables
  
  % Preface and acknowledgements
  \@ifundefined{@preface}{}{
