@@ -35,3 +35,5 @@ del %STR%.nlo
 del %STR%.glo
 del %STR%.nls
 del %STR%.ilg
+del %STR%.lot
+del %STR%.lof
