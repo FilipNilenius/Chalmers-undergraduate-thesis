@@ -61,7 +61,7 @@ Plots are preferably done using the package \texttt{pgfplots}. Below is an examp
 \end{tikzpicture}
 \label{thelabelcanbeanyingreally}
 }
-\caption{Components of the macroscale diffusivity tensor, $\bar{D}$, as a function of macroscale strain. Numerical values are normalized with respect to $D_\text{cp}$.}
+\caption[This is the caption text that goes into the table of contents.]{Components of the macroscale diffusivity tensor, $\bar{D}$, as a function of macroscale strain. Numerical values are normalized with respect to $D_\text{cp}$.}
 \label{omg}
 \end{figure}
 %------------------------------------------------------------------------------------
@@ -85,3 +85,43 @@ legend pos=north west,
 \label{analytical}
 \end{figure}
 %------------------------------------------------------------------------------------
+
+\section{Tables}
+Table contents is placed above the table. Vertical lines in tables should be avoided at all cost. Compare the two tables below:
+\begin{table}[H]
+	\begin{center}
+		\caption{An ugly table.} \label{tab:ugly}
+		\begin{tabular}{||l|lr||}
+			Animal     & Description & Price (\$)\\\hline
+			gnats     & gram      & \$13.65 \\ \cline{2-3}
+			& each      & .01 \\ \hline
+			gnu       & stuffed   & 92.50 \\ \cline{1-1} \cline{3-3}
+			emu       &           & 33.33 \\ \hline
+			armadillo & frozen    & 8.99 \\ \hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\begin{table}[H]
+	\begin{center}
+		\caption{A beautiful table.} \label{tab:beautiful}
+		\begin{tabular}{@{}llr@{}} \toprule
+			\multicolumn{2}{c}{Item} \\ \cmidrule(r){1-2}
+			Animal & Description & Price (\$)\\ \midrule
+			Gnat  & per gram  & 13.65 \\
+			& each      & 0.01 \\
+			Gnu   & stuffed   & 92.50 \\
+			Emu   & stuffed   & 33.33 \\
+			Armadillo & frozen & 8.99 \\ \bottomrule
+		\end{tabular}
+	\end{center}
+\end{table}
+\Cref{tab:ugly,tab:beautiful} provide the same information. However, \cref{tab:beautiful} is much easier to read simply because it is typeset differently. As you can tell, the vertical lines in \cref{tab:ugly} do not help the reader in separating the different columns. Notice how the top and bottom horizontal lines in \cref{tab:beautiful} are thicker than the two other lines in order to mark the beginning and end of the table. The following guidelines apply to tables:
+\begin{itemize}
+	\setlength\itemsep{0em}
+	\item Avoid vertical lines.
+	\item Minimize the need for horizontal lines.
+	\item Avoid creating boxes around the items in the table.
+	\item Units should be places in the column heading.
+	\item The caption of a table should be printed above the table, as opposed to under (as for figures).
+\end{itemize}
