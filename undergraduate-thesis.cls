@@ -30,7 +30,6 @@
 
 
 %% Predefined commands (do not need to be set)
-% \ISSN{text}
 % \printers{text}
 % \telephone{text}
 % \postcode{text}
@@ -225,7 +224,6 @@
 \newcommand{\extrafrontmatter}[1]{\gdef\@extrafrontmatter{#1}}
 
 % User commands which shouldn't need to be set.
-\newcommand{\ISSN}[1]{\gdef\@ISSN{#1}}
 \newcommand{\printers}[1]{\gdef\@printers{#1}}
 \newcommand{\telephone}[1]{\gdef\@telephone{#1}}
 \newcommand{\postcode}[1]{\gdef\@postcode{#1}}
@@ -237,7 +235,6 @@
 
 % Thesis specific settings
 \if@bachelors
-\ISSN{1654-4676}
 \def\thesisname{\bachelorsthesisname}
 \PassOptionsToPackage{english,swedish}{babel}
 \newcommand{\refsectitle}{Litteraturförteckning}
@@ -246,7 +243,6 @@
 \fi
 
 \if@masters
-\ISSN{1652-8557}
 \def\thesisname{\masterthesisname}
 \PassOptionsToPackage{swedish,english}{babel}
 \newcommand{\refsectitle}{References}
@@ -367,7 +363,6 @@
  \@checkifdefined{author}
  \@checkifdefined{department}
  \@checkifdefined{copyrightyear}
- \@checkifdefined{ISSN}
 
  \newpage
  \vspace*{\stretch{1}}
@@ -380,7 +375,6 @@
  {\noindent \copyright\ {\renewcommand{\and}{, }\MakeUppercase{\@author}}, \@copyrightyear\par}
  \vskip 2em
  {\noindent \@reportseries\ \@reportno\\
-  ISSN \@ISSN\\
   \@department\\
   \@ifundefined{@division}{}{\@division\\}
   \@ifundefined{@researchgroup}{}{\@researchgroup\\}
