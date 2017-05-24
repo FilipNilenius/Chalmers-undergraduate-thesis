@@ -95,7 +95,7 @@
 \RequirePackage{wrapfig}
 \RequirePackage{fancyhdr}
 \RequirePackage[titletoc]{appendix}
-\RequirePackage[top=0.1\paperheight, bottom=0.1\paperheight, left=0.1\paperwidth, right=0.1\paperwidth]{geometry}
+\RequirePackage[a4paper,top=0.1\paperheight, bottom=0.1\paperheight, left=0.1\paperwidth, right=0.1\paperwidth]{geometry}
 
 % Makes the chapters act like a big section
 %Chapter breytt ur \huge i \large
