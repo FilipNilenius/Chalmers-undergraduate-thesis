@@ -314,8 +314,8 @@
   \@ifundefined{@division}{}{\textit{\@division}\\}
   \@ifundefined{@researchgroup}{}{\textit{\@researchgroup}\\}
   \MakeUppercase{\universityname}\\
+  \thesisname\ \@reportno \\
   \cityname, \countryname\ \@copyrightyear
-    \\ \thesisname\ \@reportno
   \par}
  }
  % Second page, blank
