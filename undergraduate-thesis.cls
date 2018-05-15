@@ -91,7 +91,7 @@
 \RequirePackage{titlesec}
 \RequirePackage[T1]{fontenc}
 \RequirePackage[utf8]{inputenc}
-\RequirePackage{stix}
+\RequirePackage{stix2}
 \RequirePackage{wrapfig}
 \RequirePackage{fancyhdr}
 \RequirePackage[titletoc]{appendix}
